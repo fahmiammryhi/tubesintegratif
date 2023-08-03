@@ -166,17 +166,19 @@
 								<td>
 									<p>{{ $users->role }}</p>
 								</td>
-								<td class="row">
-									<div class="col-3">
-										<button type="button" class="btn btn-outline-warning btn-block mb-3" data-toggle="modal" data-target="#modal-default{{ $users->id }}">Edit</button>
-									</div>
-									<div class="col-3">
-										<form method="POST" action="{{ route('deleteuser',$users->id) }}" onsubmit="return confirm('Are you sure you want to delete this user?')">
-											@csrf
-											@method('DELETE')
-											<input type="hidden" name="userId" value="{{ $users->id }}">
-											<button type="submit" class="btn btn-block btn-outline-danger">Delete</button>
-										</form>
+								<td>
+									<div class="row">
+										<div class="col-3">
+											<button type="button" class="btn btn-outline-warning btn-block mb-3" data-toggle="modal" data-target="#modal-default{{ $users->id }}">Edit</button>
+										</div>
+										<div class="col-3">
+											<form method="POST" action="{{ route('deleteuser',$users->id) }}" onsubmit="return confirm('Are you sure you want to delete this user?')">
+												@csrf
+												@method('DELETE')
+												<input type="hidden" name="userId" value="{{ $users->id }}">
+												<button type="submit" class="btn btn-block btn-outline-danger">Delete</button>
+											</form>
+										</div>
 									</div>
 								</td>
 							</tr>

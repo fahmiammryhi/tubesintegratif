@@ -22,10 +22,10 @@
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline space-x-4">
                                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                    <a href="/user/dashboard" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
-                                    <a href="/user/about" class="text-gray-300 bg-gray-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About
+                                    <a href="#" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
+                                    <a href="/user/about" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About
                                         Us</a>
-                                    <a href="/user/news" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">News</a>
+                                    <a href="/user/news" class="text-gray-300 bg-gray-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">News</a>
 
                                 </div>
                             </div>
@@ -43,9 +43,11 @@
                                                 <img class="h-8 w-8 rounded-full" src="/img/user.png" alt="">
                                             </button>
                                         </a>
+
                                     </div>
                                 </div>
                                 <p class="text-white pl-3">{{ Auth()->user()->name }}</p>
+
                                 <a href="{{ route('logout') }}">
                                     <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-black focus:outline-none">
                                         <span class="sr-only">Log out</span>
@@ -56,6 +58,7 @@
 
 
                             </div>
+
                             <div class="-mr-2 flex md:hidden">
                                 <!-- Mobile menu button -->
                                 <button type="button" class="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
@@ -70,7 +73,9 @@
                                     </svg>
                                 </button>
                             </div>
+
                         </div>
+
                     </div>
 
                     <!-- Mobile menu, show/hide based on menu state. -->
@@ -95,7 +100,7 @@
     </header>
     <main>
         <section>
-
+            
         </section>
     </main>
 </body>
