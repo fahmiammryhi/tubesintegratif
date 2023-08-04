@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <title>Dashboard</title>
 </head>
 
@@ -22,11 +23,10 @@
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline space-x-4">
                                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                    <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
+                                    <a href="/user/dashboard" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
                                     <a href="/user/about" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About
                                         Us</a>
                                     <a href="/user/news" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">News</a>
-
                                 </div>
                             </div>
                         </div>
@@ -37,17 +37,13 @@
                                 <!-- Profile dropdown -->
                                 <div class="relative ml-3">
                                     <div>
-                                        <a href="/user/profile">
-                                            <button type="button" class="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                                <span class="sr-only">Open user menu</span>
-                                                <img class="h-8 w-8 rounded-full" src="/img/user.png" alt="">
-                                            </button>
-                                        </a>
-
+                                        <button type="button" class="flex max-w-xs items-center rounded-full bg-gray-800 text-sm" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                            <span class="sr-only">Open user menu</span>
+                                            <img class="h-8 w-8 rounded-full" src="/img/user.png" alt="">
+                                        </button>
                                     </div>
                                 </div>
                                 <p class="text-white pl-3">{{ Auth()->user()->name }}</p>
-
                                 <a href="{{ route('logout') }}">
                                     <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-black focus:outline-none">
                                         <span class="sr-only">Log out</span>
@@ -58,7 +54,6 @@
 
 
                             </div>
-
                             <div class="-mr-2 flex md:hidden">
                                 <!-- Mobile menu button -->
                                 <button type="button" class="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
@@ -73,9 +68,7 @@
                                     </svg>
                                 </button>
                             </div>
-
                         </div>
-
                     </div>
 
                     <!-- Mobile menu, show/hide based on menu state. -->
@@ -99,37 +92,72 @@
 
     </header>
     <main>
+        <br>
+        <br>
         <section>
-            <div class="bg-white">
-                <div class="mx-auto max-w-2xl px-4 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
-                    <h2 class="text-2xl font-bold tracking-tight text-gray-900">Daftar Game</h2>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-sm-6">
+                        <div class="content-wrapper">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6 d-flex align-items-center justify-content-center">
+                                            <img class="col-8" src="/img/user.png" alt="Your Company">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h3 class="mb-4">UPDATE PROFILE</h3>
+                                            <form id="updateForm" method="POST" action="{{ route('updateprofile', ['id' => Auth::id()]) }}">
+                                                @method('PUT')
+                                                @csrf
+                                                <!-- You can include any additional user fields you want to update here -->
+                                                <div class="col-sm-8 mb-3">
+                                                    <label for="name" class="form-label">Name</label>
+                                                    <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" readonly required>
+                                                </div>
+                                                <div class="col-sm-8 mb-3">
+                                                    <label for="nohp" class="form-label">Phone Number</label>
+                                                    <input type="text" class="form-control" id="nohp" name="nohp" value="{{ Auth::user()->nohp }}" readonly required>
+                                                </div>
+                                                <!-- Add more fields here -->
 
-                    <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        @foreach ($game as $game)
-                        <div class="group relative pb-10">
-                            <div class="h-full w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
-                                <img src="{{ $game->gambar }}" class="items-center justify-center h-full w-full sm:object-cover sm:object-center">
-                            </div>
-                            <div class="mt-4 flex justify-between">
-                                <div>
-                                    <h3 class="text-sm text-gray-700">
-                                        <a href="{{ route('detailgame', $game->id) }}">
-                                            <span aria-hidden="true" class="absolute inset-0"></span>
-                                            {{ $game->name_game }}
-                                        </a>
-                                    </h3>
+                                                <div class="mb-3">
+                                                    <button id="editButton" type="button" class="btn btn-primary">Edit</button>
+                                                    <button id="saveButton" type="submit" class="btn btn-success d-none">Save Changes</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
-                                <p class="text-sm font-medium text-gray-900">{{ $game->platform }}</p>
                             </div>
                         </div>
-                        @endforeach
-                        <!-- More products... -->
                     </div>
                 </div>
             </div>
-
         </section>
+
+        <script>
+            const editButton = document.getElementById('editButton');
+            const saveButton = document.getElementById('saveButton');
+            const nameInput = document.getElementById('name');
+            const nohpInput = document.getElementById('nohp');
+
+            editButton.addEventListener('click', () => {
+                nameInput.removeAttribute('readonly');
+                nohpInput.removeAttribute('readonly');
+                saveButton.classList.remove('d-none');
+                editButton.classList.add('d-none');
+            });
+        </script>
+
+
+
+
     </main>
+
+
+
+
 </body>
 
 </html>

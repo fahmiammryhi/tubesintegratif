@@ -22,10 +22,10 @@
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline space-x-4">
                                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                    <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
+                                    <a href="#" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
                                     <a href="/user/about" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About
                                         Us</a>
-                                    <a href="/user/news" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">News</a>
+                                    <a href="/user/news" class="text-gray-300 bg-gray-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">News</a>
 
                                 </div>
                             </div>
@@ -100,34 +100,7 @@
     </header>
     <main>
         <section>
-            <div class="bg-white">
-                <div class="mx-auto max-w-2xl px-4 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
-                    <h2 class="text-2xl font-bold tracking-tight text-gray-900">Daftar Game</h2>
-
-                    <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        @foreach ($game as $game)
-                        <div class="group relative pb-10">
-                            <div class="h-full w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
-                                <img src="{{ $game->gambar }}" class="items-center justify-center h-full w-full sm:object-cover sm:object-center">
-                            </div>
-                            <div class="mt-4 flex justify-between">
-                                <div>
-                                    <h3 class="text-sm text-gray-700">
-                                        <a href="{{ route('detailgame', $game->id) }}">
-                                            <span aria-hidden="true" class="absolute inset-0"></span>
-                                            {{ $game->name_game }}
-                                        </a>
-                                    </h3>
-                                </div>
-                                <p class="text-sm font-medium text-gray-900">{{ $game->platform }}</p>
-                            </div>
-                        </div>
-                        @endforeach
-                        <!-- More products... -->
-                    </div>
-                </div>
-            </div>
-
+            
         </section>
     </main>
 </body>

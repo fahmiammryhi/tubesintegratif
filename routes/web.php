@@ -38,6 +38,9 @@ Route::middleware('auth')->group(function () {
 //user
 Route::get('/user/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('user.game');
 Route::get('/user/about', [App\Http\Controllers\UserController::class, 'tentangkami'])->name('user.about');
+Route::get('/user/profile', [App\Http\Controllers\UserController::class, 'profil'])->name('user.profile');
+Route::put('/updateprofile/{id}', [UserController::class, 'updateprofile'])->name('updateprofile');
+Route::get('/user/news', [App\Http\Controllers\UserController::class, 'news'])->name('user.news');
 
 Route::get('/detailgame/{id}', [UserController::class, 'showDetail'])->name('detailgame');
 
