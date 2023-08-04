@@ -92,7 +92,7 @@
 
                     <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                         @foreach ($game as $game)
-                        <div class="group relative">
+                        <div class="group relative pb-10">
                             <div class="h-full w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
                                 <img src="{{ $game->gambar }}" class="items-center justify-center h-full w-full sm:object-cover sm:object-center">
                             </div>

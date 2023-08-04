@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -28,6 +29,7 @@ class AdminController extends Controller
         $game = DB::table('game')->get();
         return view('admin.product', ['game' => $game]);
     }
+
     public function logout()
     {
         Auth::logout();
@@ -125,4 +127,140 @@ class AdminController extends Controller
         // For example:
         return redirect()->back()->with('success', 'game information updated successfully.');
     }
+
+
+
+
+    ////API
+    public function produkapi()
+    {
+        $game = DB::table('game')->get();
+        return response()->json($game,200);
+    }
+
+    public function store(Request $request)
+    {
+        // $game = DB::table('game')->get();
+        // return response()->json($game,200);
+        $validate = Validator::make($request->all(),[
+            'name_game' => 'required|string|max:200',
+            'gambar' => 'required|string|max:200',
+            'platform' => 'required|string|max:200',
+            'deskripsi' => 'required|string|max:200',
+             
+        ]);
+
+        if($validate->fails()){
+            return response()->json([
+                'status' => 422,
+                'errors' => $validate->messages()
+            ], 422);
+        }else{
+            $game = DB::table('game')->insert([
+                'name_game' => $request->name_game,
+                'gambar' => $request->gambar,
+                'platform' => $request->platform,
+                'deskripsi' => $request->deskripsi,
+                
+            ]);
+        }
+
+        if($game){
+            return response()->json([
+                'status' => 200,
+                'message' => 'Data sukses dibuat'
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 500,
+                'message' => 'Ada yang salah'
+            ], 500);
+        }
+    }
+
+    public function show($id){
+        $game = DB::table('game')->where('id', $id)->first();
+        if($game){
+            return response()->json([
+                'status' => 200,
+                'message' => $game
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 404,
+                'message' => 'Tidak ada data'
+            ], 404);
+        }
+    }
+
+    public function edit($id){
+        $game = DB::table('game')->where('id', $id)->first();
+        if($game){
+            return response()->json([
+                'status' => 200,
+                'message' => $game
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 404,
+                'message' => 'Tidak ada data'
+            ], 404);
+        }
+    }
+
+    public function update(Request $request, int $id)
+    {
+        $validate = Validator::make($request->all(), [
+            'name_game' => 'required|string|max:200',
+            'gambar' => 'required|string|max:200',
+            'platform' => 'required|string|max:200',
+            'deskripsi' => 'required',
+        ]);
+
+        if ($validate->fails()) {
+            return response()->json([
+                'status' => 422,
+                'errors' => $validate->messages()
+            ], 422);
+        } else {
+            $game = DB::table('game')->where('id', $id)->first();
+        }
+
+        if ($game) {
+            DB::table('game')->where('id', $id)->update([
+                'name_game' => $request->name_game,
+                'gambar' => $request->gambar,
+                'platform' => $request->platform,
+                'deskripsi' => $request->deskripsi,
+            ]);
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'Data sukses diupdate'
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Data tidak ditemukan'
+            ], 404);
+        }
+    }
+
+    public function destroy($id)
+    {
+        $game = DB::table('game')->where('id', $id)->first();
+        if($game){
+            DB::table('game')->where('id', $id)->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Data Berhasil Dihapus'
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 404,
+                'message' => 'Data tidak ditemukan'
+            ], 404);
+        }
+    }
+
 }
