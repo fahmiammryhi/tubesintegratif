@@ -50,9 +50,6 @@
                                         <i class="fas fa-sign-out-alt ml-3 fa-lg" aria-hidden="true"></i>
                                     </button>
                                 </a>
-
-
-
                             </div>
                             <div class="-mr-2 flex md:hidden">
                                 <!-- Mobile menu button -->
@@ -114,6 +111,10 @@
                                                 <div class="col-sm-8 mb-3">
                                                     <label for="name" class="form-label">Name</label>
                                                     <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" readonly required>
+                                                </div>
+                                                <div class="col-sm-8 mb-3">
+                                                    <label for="email" class="form-label">Email</label>
+                                                    <input type="text" class="form-control" id="email" email="email" value="{{ Auth::user()->email }}" readonly required>
                                                 </div>
                                                 <div class="col-sm-8 mb-3">
                                                     <label for="nohp" class="form-label">Phone Number</label>

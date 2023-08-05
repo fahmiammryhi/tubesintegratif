@@ -5,7 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <title>Dashboard</title>
 </head>
 
@@ -46,8 +52,7 @@
 
                                     </div>
                                 </div>
-                                <p class="text-white pl-3">{{ Auth()->user()->name }}</p>
-
+                                <p class="text-white pl-3 pt-2">{{ Auth()->user()->name }}</p>
                                 <a href="{{ route('logout') }}">
                                     <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-black focus:outline-none">
                                         <span class="sr-only">Log out</span>
@@ -96,37 +101,59 @@
             </nav>
 
         </div>
-
+        <!-- 1600x533 -->
     </header>
     <main>
         <section>
             <div class="bg-white">
                 <div class="mx-auto max-w-2xl px-4 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
-                    <h2 class="text-2xl font-bold tracking-tight text-gray-900">Daftar Game</h2>
 
-                    <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        @foreach ($game as $game)
-                        <div class="group relative pb-10">
-                            <div class="h-full w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
-                                <img src="{{ $game->gambar }}" class="items-center justify-center h-full w-full sm:object-cover sm:object-center">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/img/moleg.jpg" class="d-block w-100 rounded"  alt="...">
                             </div>
-                            <div class="mt-4 flex justify-between">
-                                <div>
-                                    <h3 class="text-sm text-gray-700">
-                                        <a href="{{ route('detailgame', $game->id) }}">
-                                            <span aria-hidden="true" class="absolute inset-0"></span>
-                                            {{ $game->name_game }}
-                                        </a>
-                                    </h3>
-                                </div>
-                                <p class="text-sm font-medium text-gray-900">{{ $game->platform }}</p>
+                            <div class="carousel-item">
+                                <img src="/img/valorant.png" class="d-block w-100 rounded" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/img/genshin.jpg" class="d-block w-100 rounded" alt="...">
                             </div>
                         </div>
-                        @endforeach
-                        <!-- More products... -->
+                        <!-- Add autoplay script -->
+                        <script>
+                            // Set interval for autoplay
+                            setInterval(function() {
+                                document.querySelector('#carouselExampleAutoplaying').carousel('next');
+                            }, 3000); // Change slide every 3 seconds
+                        </script>
+
+                        <br>
+                        <h2 class="text-2xl font-bold tracking-tight text-gray-900">Daftar Game</h2>
+
+                        <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 mb-80">
+                            @foreach ($game as $game)
+                            <div class="group relative">
+                                <div class="h-full w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
+                                    <img src="{{ $game->gambar }}" class="items-center justify-center h-full w-full sm:object-cover sm:object-center">
+                                </div>
+                                <div class="mt-4 flex justify-between">
+                                    <div>
+                                        <h3 class="text-sm text-gray-700">
+                                            <a href="{{ route('detailgame', $game->id) }}" class="text-sm text-gray-700">
+                                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                                {{ $game->name_game }}
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <p class="text-sm font-medium text-gray-900">{{ $game->platform }}</p>
+                                </div>
+                            </div>
+                            @endforeach
+                            <!-- More products... -->
+                        </div>
                     </div>
                 </div>
-            </div>
 
         </section>
     </main>
