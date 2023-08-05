@@ -214,7 +214,6 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th style="width: 10px">ID</th>
                                 <th>Nama Game</th>
                                 <th>Gambar</th>
                                 <th>Platform</th>
@@ -225,9 +224,6 @@
                         <tbody>
                             @foreach ($game as $game)
                             <tr>
-                                <td>
-                                    <p>{{ $game->id }}</p>
-                                </td>
                                 <td>
                                     <p>{{ $game->name_game }}
                                 </td>

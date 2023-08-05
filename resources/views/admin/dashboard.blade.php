@@ -144,7 +144,6 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr>
-								<th style="width: 10px">ID</th>
 								<th>Name</th>
 								<th>No.hp</th>
 								<th>Role</th>
@@ -154,9 +153,6 @@
 						<tbody>
 							@foreach ($users as $users)
 							<tr>
-								<td>
-									<p>{{ $users->id }}</p>
-								</td>
 								<td>
 									<p>{{ $users->name }}
 								</td>
