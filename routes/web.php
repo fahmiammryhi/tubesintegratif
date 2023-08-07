@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ApiController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,9 +55,20 @@ Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 // Route::post('/admin/dashboard', [AdminController::class, 'index']);
 Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.users');
 Route::get('/admin/product', [App\Http\Controllers\AdminController::class, 'produk'])->name('admin.produk');
+Route::get('/admin/transaksi', [App\Http\Controllers\AdminController::class, 'transaksi'])->name('admin.transaksi');
 
 Route::delete('/deleteuser/{id}', [AdminController::class, 'deleteuser'])->name('deleteuser');
 Route::put('/updateuser/{id}', [AdminController::class, 'updateuser'])->name('updateuser');
 
 Route::delete('/deletegame{id}', [AdminController::class, 'deletegame'])->name('deletegame');
 Route::put('/updategame/{id}', [AdminController::class, 'updategame'])->name('updategame');
+
+
+////NEWSAPI
+Route::get('/user/news', [App\Http\Controllers\ApiController::class, 'getFreeGames'])->name('user.news');
+// Route::get('/user/news', [App\Http\Controllers\ApiController::class, 'search'])->name('user.news.search');
+
+
+//ORDER
+Route::post('/user/checkout',[OrderController::class,'checkout']);
+Route::get('/user/invoice/{id}',[OrderController::class,'invoice']);

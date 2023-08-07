@@ -8,6 +8,7 @@
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+
     <title>Dashboard</title>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
@@ -30,7 +31,7 @@
                                     <a href="/user/dashboard" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
                                     <a href="/user/about" class="text-gray-300 bg-gray-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About
                                         Us</a>
-                                    <a href="/user/news" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">News</a>
+                                    <a href="/user/news" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Daftar Game</a>
 
                                 </div>
                             </div>
@@ -126,60 +127,6 @@
                     </div>
                 </div>
             </div>
-
-
-            <div class="container">
-                <div class="p-6 sm:p-12 dark:bg-gray-900 dark:text-gray-100">
-                    <div class="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
-                        <img src="/img/arkan.jpeg" alt="" class="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700">
-                        <div class="flex flex-col justify-center align-items-center">
-                            <h4 class="text-lg font-semibold text-center md:text-left">Muhammad Arkan Fauzan W.</h4>
-                            <p class="dark:text-gray-400">Jadilah seperti lilin yang memberikan cahaya, meski ia sendiri harus terbakar. Ketika kamu merasa kecil di dunia yang luas, ingatlah bahwa bintang-bintang pun terlihat kecil, namun mampu menerangi langit.</p>
-                        </div>
-                    </div>
-                    <div class="flex justify-center pt-4 space-x-4 align-center ml-10">
-                        <a rel="noopener noreferrer" href="https://github.com/muharkan123" aria-label="GitHub" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
-                            <i class="fab fa-github w-4 h-4"></i>
-                        </a>
-                        <a rel="noopener noreferrer" href="#" aria-label="Instagram" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
-                            <i class="fab fa-instagram w-4 h-4"></i>
-                        </a>
-                        <a rel="noopener noreferrer" href="#" aria-label="WhatsApp" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
-                            <i class="fab fa-whatsapp w-4 h-4"></i>
-                        </a>
-                        <a rel="noopener noreferrer" href="#" aria-label="Gmail" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
-                            <i class="fas fa-envelope w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="p-6 sm:p-12 dark:bg-gray-900 dark:text-gray-100">
-                    <div class="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
-                        <img src="/img/ilyas.jpeg" alt="" class="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700">
-                        <div class="flex flex-col">
-                            <h4 class="text-lg font-semibold text-center md:text-left mr-12">Ilyas Kurniawan Yusri </h4>
-                            <p class="dark:text-gray-400">Belajar menghargai dan janganlah menyia-nyiakan, sebab kesempatan yang kedua tak akan pernah sebaik dari kesempatan pertama yang kau dapatkan.</p>
-                        </div>
-                    </div>
-                    <div class="flex justify-center pt-4 space-x-4 align-center ml-12">
-                        <a rel="noopener noreferrer" href="https://github.com/ilyasky19" aria-label="GitHub" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
-                            <i class="fab fa-github w-4 h-4"></i>
-                        </a>
-                        <a rel="noopener noreferrer" href="#" aria-label="Instagram" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
-                            <i class="fab fa-instagram w-4 h-4"></i>
-                        </a>
-                        <a rel="noopener noreferrer" href="#" aria-label="WhatsApp" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
-                            <i class="fab fa-whatsapp w-4 h-4"></i>
-                        </a>
-                        <a rel="noopener noreferrer" href="#" aria-label="Gmail" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
-                            <i class="fas fa-envelope w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
             <div class="container">
                 <div class="p-6 sm:p-12 dark:bg-gray-900 dark:text-gray-100">
                     <div class="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
@@ -191,6 +138,31 @@
                     </div>
                     <div class="flex justify-center pt-4 space-x-4 align-center ml-12">
                         <a rel="noopener noreferrer" href="#" aria-label="GitHub" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
+                            <i class="fab fa-github w-4 h-4"></i>
+                        </a>
+                        <a rel="noopener noreferrer" href="#" aria-label="Instagram" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
+                            <i class="fab fa-instagram w-4 h-4"></i>
+                        </a>
+                        <a rel="noopener noreferrer" href="#" aria-label="WhatsApp" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
+                            <i class="fab fa-whatsapp w-4 h-4"></i>
+                        </a>
+                        <a rel="noopener noreferrer" href="#" aria-label="Gmail" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
+                            <i class="fas fa-envelope w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="p-6 sm:p-12 dark:bg-gray-900 dark:text-gray-100">
+                    <div class="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
+                        <img src="/img/ilyas.jpeg" alt="" class="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700">
+                        <div class="flex flex-col">
+                            <h4 class="text-lg font-semibold text-center md:text-left mr-12">Ilyas Kurniawan Yusri </h4>
+                            <p class="dark:text-gray-400">Belajar menghargai dan janganlah menyia-nyiakan, sebab kesempatan yang kedua tak akan pernah sebaik dari kesempatan pertama yang kau dapatkan.</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center pt-4 space-x-4 align-center ml-12">
+                        <a rel="noopener noreferrer" href="https://github.com/ilyasky19" aria-label="GitHub" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
                             <i class="fab fa-github w-4 h-4"></i>
                         </a>
                         <a rel="noopener noreferrer" href="#" aria-label="Instagram" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
@@ -222,6 +194,32 @@
                             <i class="fab fa-instagram w-4 h-4"></i>
                         </a>
                         <a rel="noopener noreferrer" href="https:wa.me/082132601411" aria-label="WhatsApp" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
+                            <i class="fab fa-whatsapp w-4 h-4"></i>
+                        </a>
+                        <a rel="noopener noreferrer" href="#" aria-label="Gmail" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
+                            <i class="fas fa-envelope w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="p-6 sm:p-12 dark:bg-gray-900 dark:text-gray-100">
+                    <div class="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
+                        <img src="/img/arkan.jpeg" alt="" class="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700">
+                        <div class="flex flex-col justify-center align-items-center">
+                            <h4 class="text-lg font-semibold text-center md:text-left">Muhammad Arkan Fauzan W.</h4>
+                            <p class="dark:text-gray-400">Jadilah seperti lilin yang memberikan cahaya, meski ia sendiri harus terbakar. Ketika kamu merasa kecil di dunia yang luas, ingatlah bahwa bintang-bintang pun terlihat kecil, namun mampu menerangi langit.</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center pt-4 space-x-4 align-center ml-10">
+                        <a rel="noopener noreferrer" href="https://github.com/muharkan123" aria-label="GitHub" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
+                            <i class="fab fa-github w-4 h-4"></i>
+                        </a>
+                        <a rel="noopener noreferrer" href="#" aria-label="Instagram" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
+                            <i class="fab fa-instagram w-4 h-4"></i>
+                        </a>
+                        <a rel="noopener noreferrer" href="#" aria-label="WhatsApp" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
                             <i class="fab fa-whatsapp w-4 h-4"></i>
                         </a>
                         <a rel="noopener noreferrer" href="#" aria-label="Gmail" class="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">

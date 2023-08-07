@@ -30,6 +30,11 @@ class AdminController extends Controller
         return view('admin.product', ['game' => $game]);
     }
 
+    public function transaksi()
+    {
+        $transaksi = DB::table('transaksi')->get();
+        return view('admin.transaksi', ['transaksi' => $transaksi]);
+    }
     public function logout()
     {
         Auth::logout();
@@ -129,19 +134,16 @@ class AdminController extends Controller
     }
 
 
-
-
     ////API
     public function produkapi()
     {
+        
         $game = DB::table('game')->get();
         return response()->json($game,200);
     }
 
     public function store(Request $request)
     {
-        // $game = DB::table('game')->get();
-        // return response()->json($game,200);
         $validate = Validator::make($request->all(),[
             'name_game' => 'required|string|max:200',
             'gambar' => 'required|string|max:200',

@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Dashboard</title>
 </head>
@@ -26,7 +25,7 @@
                                     <a href="/user/dashboard" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
                                     <a href="/user/about" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About
                                         Us</a>
-                                    <a href="/user/news" class="text-gray-300 bg-gray-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">News</a>
+                                    <a href="/user/news" class="text-gray-300 bg-gray-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Daftar Game</a>
 
                                 </div>
                             </div>
@@ -47,7 +46,7 @@
 
                                     </div>
                                 </div>
-                                <p class="text-white pl-3 pt-2">{{ Auth()->user()->name }}</p>
+                                <p class="text-white pl-3">{{ Auth()->user()->name }}</p>
 
                                 <a href="{{ route('logout') }}">
                                     <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-black focus:outline-none">
@@ -101,6 +100,40 @@
     </header>
     <main>
         <section>
+            <div class="bg-white">
+                <div class="mx-auto max-w-2xl px-4 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
+                    <h2 class="text-2xl font-bold tracking-tight text-gray-900">Daftar Game</h2>
+                    <form action="{{ route('user.news') }}" method="GET" class="mt-4">
+                        <input type="text" name="search" placeholder="Cari Game" class="rounded-lg border-2 border-cyan-700 p-2">
+                        <button type="submit" class="ml-2 bg-slate-500 p-2 px-4 rounded-xl duration-100 text-white hover:bg-slate-700">Search</button>
+                    </form>
+
+                    <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                        @foreach ($freeGamesData as $game)
+                        <div class="group relative pb-10">
+                            <div class="h-full w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
+                                <img src="{{ $game['thumbnail'] }}" class="items-center justify-center h-full w-full sm:object-cover sm:object-center">
+                            </div>
+                            <div class="mt-4 flex justify-between">
+                                <div>
+                                    <h3 class="text-sm text-gray-700">
+                                        {{-- <a href="<-- {{ route('detailgame', $game->id) }} -->"> --}}
+                                        <span aria-hidden="true" class="absolute inset-0"></span>
+                                        {{ $game['title'] }}
+                                        {{-- </a> --}}
+                                    </h3>
+                                </div>
+                                {{-- <p class="text-sm font-medium text-gray-900">{{ $game->platform }}</p> --}}
+                            </div>
+                        </div>
+                        @endforeach
+                        {{-- @foreach ($freeGamesData['freeGames']['current'] as $game)
+                            <li>{{ $game['title'] }} - {{ $game['id'] }}</li>
+                        @endforeach --}}
+                        <!-- More products... -->
+                    </div>
+                </div>
+            </div>
 
         </section>
     </main>

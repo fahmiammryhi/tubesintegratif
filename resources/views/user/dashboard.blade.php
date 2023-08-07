@@ -31,7 +31,7 @@
                                     <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
                                     <a href="/user/about" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About
                                         Us</a>
-                                    <a href="/user/news" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">News</a>
+                                    <a href="/user/news" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Daftar Game</a>
 
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="/img/moleg.jpg" class="d-block w-100 rounded"  alt="...">
+                                <img src="/img/moleg.jpg" class="d-block w-100 rounded" alt="...">
                             </div>
                             <div class="carousel-item">
                                 <img src="/img/valorant.png" class="d-block w-100 rounded" alt="...">

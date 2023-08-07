@@ -175,7 +175,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/dashboard" class="nav-link">
+                                <a href="/admin/product" class="nav-link">
                                     <i class="nav-icon fa-solid fa-gamepad"></i>
                                     <p>
                                         Game
@@ -183,6 +183,15 @@
                                     </p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+								<a href="/admin/transaksi" class="nav-link">
+									<i class="nav-icon fa-solid fa-wallet"></i>
+									<p>
+										Transaksi
+										<i class="right "></i>
+									</p>
+								</a>
+							</li>
                             <li class="nav-item">
                                 <a href="{{ route('logout') }}" class="nav-link">
                                     <i class="nav-icon fa-solid fa-right-from-bracket"></i>
@@ -214,6 +223,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                                <th style="width: 10px">ID</th>
                                 <th>Nama Game</th>
                                 <th>Gambar</th>
                                 <th>Platform</th>
@@ -224,6 +234,9 @@
                         <tbody>
                             @foreach ($game as $game)
                             <tr>
+                                <td>
+                                    <p>{{ $game->id }}</p>
+                                </td>
                                 <td>
                                     <p>{{ $game->name_game }}
                                 </td>

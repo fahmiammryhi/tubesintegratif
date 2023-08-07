@@ -114,7 +114,7 @@
 								</a>
 							</li>
 							<li class="nav-item">
-								<a href="/admin/transaksi" class="nav-link">
+								<a href="/admin/product" class="nav-link">
 									<i class="nav-icon fa-solid fa-wallet"></i>
 									<p>
 										Transaksi
@@ -156,81 +156,38 @@
 								<th style="width: 10px">ID</th>
 								<th>Name</th>
 								<th>No.hp</th>
-								<th>Role</th>
-								<th>Action</th>
+								<th>Email</th>
+								<th>Status</th>
+								<th>Total</th>
+								<th>Time</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach ($users as $users)
+							@foreach ($transaksi as $users)
 							<tr>
 								<td>
 									<p>{{ $users->id }}</p>
 								</td>
 								<td>
-									<p>{{ $users->name }}
+									<p>{{ $users->nickname }}
 								</td>
 								<td>
 									<p>{{ $users->nohp }}</p>
 								</td>
 								<td>
-									<p>{{ $users->role }}</p>
+									<p>{{ $users->email }}</p>
 								</td>
 								<td>
-									<div class="row">
-										<div class="col-3">
-											<button type="button" class="btn btn-outline-warning btn-block mb-3" data-toggle="modal" data-target="#modal-default{{ $users->id }}">Edit</button>
-										</div>
-										<div class="col-3">
-											<form method="POST" action="{{ route('deleteuser',$users->id) }}" onsubmit="return confirm('Are you sure you want to delete this user?')">
-												@csrf
-												@method('DELETE')
-												<input type="hidden" name="userId" value="{{ $users->id }}">
-												<button type="submit" class="btn btn-block btn-outline-danger">Delete</button>
-											</form>
-										</div>
-									</div>
+									<p>{{ $users->status }}</p>
+								</td>
+								<td>
+									<p>Rp{{ $users->qty }}</p>
+								</td>
+								<td>
+									<p>{{ $users->time }}</p>
 								</td>
 							</tr>
 
-							<div class="modal fade" id="modal-default{{ $users->id }}">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="modal{{ $users->id }}">Update User</h5>
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<div class="modal-body">
-											<form action="{{ route('updateuser', $users->id) }}" method="POST">
-												@csrf
-												@method('PUT')
-												<div class="form-group">
-													<label for="name">Name:</label>
-													<input type="text" name="name" class="form-control" value="{{ $users->name }}" required>
-												</div>
-												<div class="form-group">
-													<label for="nohp">No. HP:</label>
-													<input type="tel" name="nohp" class="form-control" value="{{ $users->nohp }}" required>
-												</div>
-												<div class="form-group">
-													<label for="role">Role:</label>
-													<select name="role" class="form-control" required>
-														<option value="admin" {{ $users->role === 'admin' ? 'selected' : '' }}>Admin</option>
-														<option value="users" {{ $users->role === 'user' ? 'selected' : '' }}>User</option>
-													</select>
-												</div>
-										</div>
-										<div class="modal-footer justify-content-between">
-											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											<button type="submit" class="btn btn-primary">Save changes</button>
-										</div>
-										</form>
-									</div>
-									<!-- /.modal-content -->
-								</div>
-								<!-- /.modal-dialog -->
-							</div>
 							<!-- /.modal -->
 							@endforeach
 						</tbody>

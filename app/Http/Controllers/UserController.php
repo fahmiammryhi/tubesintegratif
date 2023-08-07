@@ -14,6 +14,7 @@ class UserController extends Controller
         return view('user.dashboard');
     }
 
+
     public function index()
     {
         $game = DB::table('game')->get();
